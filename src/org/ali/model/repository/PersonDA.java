@@ -65,10 +65,7 @@ public class PersonDA implements AutoCloseable{
     }
 
     public List<Person> findAll() throws Exception{
-        Query query = entityManager.createQuery("select person from person person");
-        if (query.getResultList().isEmpty()) {
-            throw new NoRecord("Table is empty");
-        }
+        Query query = entityManager.createQuery("select p from person p");
         return query.getResultList();
     }
 
